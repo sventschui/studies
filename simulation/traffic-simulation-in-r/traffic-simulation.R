@@ -160,16 +160,18 @@
         Std = c(Std, sqrt(var(itms)))
       }
       
+      meanPlotY <- max(c(5, E, Std))
+      
       plot(
         main = "Mittelwert und Standardabweichung",
         E, 
         type = "l", 
         col="green",
-        ylim = c(0,y),
+        ylim = c(0,meanPlotY),
         ylab = "Anzahl Fahrzeuge",
         xlab = "t [0.1s]"
       )
-      legend(x = 4000, y=y*0.8, legend=c(paste("E[N", queue, "(t)]", sep=""), paste("Std[N", queue, "(t)]", sep="")), col = c("green", "red"), lwd=2, cex=1, xjust=0.5, yjust=0.5)
+      legend(x = 2500, y=meanPlotY*0.9, legend=c(paste("E[N", queue, "(t)]", sep=""), paste("Std[N", queue, "(t)]", sep="")), col = c("green", "red"), lwd=2, cex=1, xjust=0.5, yjust=0.5)
       lines(Std, col="red")
       
       dev.off()
